@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW17</title>
+</head>
+<body>
+    <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th class="sort" scope="col" data-sort="up" data-name="id">id</th>
+            <th class="sort" scope="col" data-sort="up" data-name="firstname">First Name</th>
+            <th class="sort" scope="col" data-sort="up" data-name="surname">Last Name</th>
+            <th class="sort" scope="col" data-sort="up" data-name="bornCity">Born Location</th>
+            <th class="sort" scope="col" data-sort="up" data-name="diedCity">Died Location</th>
+            <th class="sort" scope="col" data-sort="up" data-name="gender">Gender</th>
+            <th class="sort" scope="col" data-sort="up" data-name="prizes">Prizes</th>
+            <th class="sort" scope="col" data-sort="up" data-name="born">Born</th>
+            <th class="sort" scope="col" data-sort="up" data-name="died">Died</th>
+          </tr>
+        </thead>
+        <tbody id="tBody">
+        </tbody>
+        <tfoot>
+            <td>
+                <select name="" id="rowPerPage">
+                    <option selected value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="250">250</option>
+                    <option value="500">500</option>
+                </select>
+            </td>
+            <td colspan="8">
+              <button id="firstBtn" class="btn btn-light btn-sm">1</button>
+              <span id="firstSpan" >...</span>
+              <button id="prevBtn" class="btn btn-light btn-sm">prev</button>
+              <button id="activeBtn" class="btn btn-secondary btn-sm">active</button>
+              <button id="nextBtn" class="btn btn-light btn-sm">next</button>
+              <span id="lastSpan">...</span>
+              <button id="lastBtn" class="btn btn-light btn-sm">last</button>
+            </td>
+        </tfoot>
+      </table>
+</body>
+</html>
