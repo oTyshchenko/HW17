@@ -4,7 +4,17 @@ import { renderTable } from './table/renderTable';
 import { getDataWithoutUndefined } from "./logic/getDataWithoutUndefined";
 
 const tableBox = document.getElementById('tableBox');
-const tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
+const tableHeadersName = {
+    id: { name: 'id', sortDirection: 'down', key: 'id' },
+    firstName: { name: 'First name', sortDirection: 'down', key: 'firstName' },
+    lastName: { name: 'Last name', sortDirection: 'down', key: 'lastName' },
+    bornLocation: { name: 'Born location', sortDirection: 'down', key: 'bornLocation' },
+    diedLocation: { name: 'Died location', sortDirection: 'down', key: 'diedLocation' },
+    gender: { name: 'Gender', sortDirection: 'down', key: 'gender' },
+    prizes: { name: 'Prizes', sortDirection: 'down', key: 'prizes' },
+    born: { name: 'Born', sortDirection: 'down', key: 'born' },
+    died: { name: 'Died', sortDirection: 'down', key: 'died' },
+};
 const rowPerPageArr = [5, 10, 25, 50, 100, 250];
 const startCurrentRowPerPage = 10;
 const startCurrentPage = 1;
@@ -26,7 +36,6 @@ const currentData = people.map((el) => {
         died: el.died || ''
     }
 });
-
 const startState = {
     currentRowPerPage: startCurrentRowPerPage,
     currentPage: startCurrentPage,
@@ -34,7 +43,7 @@ const startState = {
     tableHeadersName: tableHeadersName,
     firstElementIndex: startFirstElementIndex,
     rowPerPageArr: rowPerPageArr,
-    currentData: currentData
+    currentData: currentData,
 }
 
 renderTable(startState);

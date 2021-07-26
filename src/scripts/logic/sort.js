@@ -1,4 +1,4 @@
-import { renderTable } from "../table/renderTable"; 
+import { renderTable } from "../table/renderTable";
 
 const sortStringUp = (key) => (a, b) => a[key] > b[key] ? 1 : -1;
 const sortStringDown = (key) => (a, b) => a[key] < b[key] ? 1 : -1;
@@ -8,63 +8,95 @@ const sortNumberDown = (key) => (a, b) => b[key] - a[key];
 const sortColumn = (e, state) => {
     const newState = Object.assign(state);
 
-    const value = e.target.innerText;
-    if (value === 'id↓') {
-        newState.currentData.sort(sortNumberDown('id'));
-        newState.tableHeadersName = ['id↑', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'id↑') {
-        newState.currentData.sort(sortNumberUp('id'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'First name↓') {
-        newState.currentData.sort(sortStringDown('firstName'));
-        newState.tableHeadersName = ['id↓', 'First name↑', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'First name↑') {
-        newState.currentData.sort(sortStringUp('firstName'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Last name↓') {
-        newState.currentData.sort(sortStringDown('lastName'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↑', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Last name↑') {
-        newState.currentData.sort(sortStringUp('lastName'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Born location↓') {
-        newState.currentData.sort(sortStringDown('bornLocation'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↑', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Born location↑') {
-        newState.currentData.sort(sortStringUp('bornLocation'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Died location↓') {
-        newState.currentData.sort(sortStringDown('diedLocation'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↑', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Died location↑') {
-        newState.currentData.sort(sortStringUp('diedLocation'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Gender↓') {
-        newState.currentData.sort(sortStringDown('gender'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↑', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Gender↑') {
-        newState.currentData.sort(sortStringUp('gender'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Prizes↓') {
-        newState.currentData.sort(sortStringDown('prizes'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↑', 'Born↓', 'Died↓'];
-    } else if (value === 'Prizes↑') {
-        newState.currentData.sort(sortStringUp('prizes'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Born↓') {
-        newState.currentData.sort(sortStringDown('born'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↑', 'Died↓'];
-    } else if (value === 'Born↑') {
-        newState.currentData.sort(sortStringUp('born'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    } else if (value === 'Died↓') {
-        newState.currentData.sort(sortStringDown('died'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↑'];
-    } else if (value === 'Died↑') {
-        newState.currentData.sort(sortStringUp('died'));
-        newState.tableHeadersName = ['id↓', 'First name↓', 'Last name↓', 'Born location↓', 'Died location↓', 'Gender↓', 'Prizes↓', 'Born↓', 'Died↓'];
-    }
+    console.log(e.target.dataset.key)
+    const key = e.target.dataset.key;
 
+    if (e.target.dataset.sortDirection === 'down') {
+        switch (key) {
+            case ('id'):
+                newState.tableHeadersName.id.sortDirection = 'up';
+                newState.currentData = state.currentData.sort(sortNumberDown('id'));
+                break;
+            case ('firstName'):
+                newState.tableHeadersName.firstName.sortDirection = 'up';
+                newState.currentData = state.currentData.sort(sortStringDown('firstName'));
+                break;
+            case ('lastName'):
+                newState.tableHeadersName.lastName.sortDirection = 'up';
+                newState.currentData = state.currentData.sort(sortStringDown('lastName'));
+                break;
+            case ('bornLocation'):
+                newState.tableHeadersName.bornLocation.sortDirection = 'up';
+                newState.currentData = state.currentData.sort(sortStringDown('bornLocation'));
+                break;
+            case ('diedLocation'):
+                newState.tableHeadersName.diedLocation.sortDirection = 'up';
+                newState.currentData = state.currentData.sort(sortStringDown('diedLocation'));
+                break;
+            case ('gender'):
+                newState.tableHeadersName.gender.sortDirection = 'up';
+                newState.currentData = state.currentData.sort(sortStringDown('gender'));
+                break;
+            case ('prizes'):
+                newState.tableHeadersName.prizes.sortDirection = 'up';
+                newState.currentData = state.currentData.sort(sortStringDown('prizes'));
+                break;
+            case ('born'):
+                newState.tableHeadersName.born.sortDirection = 'up';
+                newState.currentData = state.currentData.sort(sortStringDown('born'));
+                break;
+            case ('died'):
+                newState.tableHeadersName.died.sortDirection = 'up';
+                newState.currentData = state.currentData.sort(sortStringDown('died'));
+                break;
+
+            default:
+                break
+        }
+    } else {
+        switch (key) {
+            case ('id'):
+                newState.tableHeadersName.id.sortDirection = 'down';
+                newState.currentData = state.currentData.sort(sortNumberUp('id'));
+                break;
+            case ('firstName'):
+                newState.tableHeadersName.firstName.sortDirection = 'down';
+                newState.currentData = state.currentData.sort(sortStringUp('firstName'));
+                break;
+            case ('lastName'):
+                newState.tableHeadersName.lastName.sortDirection = 'down';
+                newState.currentData = state.currentData.sort(sortStringUp('lastName'));
+                break;
+            case ('bornLocation'):
+                newState.tableHeadersName.bornLocation.sortDirection = 'down';
+                newState.currentData = state.currentData.sort(sortStringUp('bornLocation'));
+                break;
+            case ('diedLocation'):
+                newState.tableHeadersName.diedLocation.sortDirection = 'down';
+                newState.currentData = state.currentData.sort(sortStringUp('diedLocation'));
+                break;
+            case ('gender'):
+                newState.tableHeadersName.gender.sortDirection = 'down';
+                newState.currentData = state.currentData.sort(sortStringUp('gender'));
+                break;
+            case ('prizes'):
+                newState.tableHeadersName.prizes.sortDirection = 'down';
+                newState.currentData = state.currentData.sort(sortStringUp('prizes'));
+                break;
+            case ('born'):
+                newState.tableHeadersName.born.sortDirection = 'down';
+                newState.currentData = state.currentData.sort(sortStringUp('born'));
+                break;
+            case ('died'):
+                newState.tableHeadersName.died.sortDirection = 'down';
+                newState.currentData = state.currentData.sort(sortStringUp('died'));
+                break;
+
+            default:
+                break
+        }
+    }
+    
     renderTable(newState);
 };
 
