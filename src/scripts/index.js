@@ -1,5 +1,5 @@
 import './../style/style.scss';
-import { people } from './data';
+import  people  from './laureate';
 import { renderTable } from './table/renderTable';
 import { getDataWithoutUndefined } from "./logic/getDataWithoutUndefined";
 

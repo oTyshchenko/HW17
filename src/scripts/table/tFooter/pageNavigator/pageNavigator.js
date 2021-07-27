@@ -5,7 +5,7 @@ import { showLastPage } from "./showLastPage";
 import { showFirstPage } from "./showFirstPage";
 
 export const getPageNavigator = (state) => {
-    const newState = Object.assign(state);
+    const newState = {...state};
     const lastPageNumber = Math.ceil(state.currentData.length / state.currentRowPerPage);
     const pageNavigationBox = getTd();
 
@@ -19,7 +19,6 @@ export const getPageNavigator = (state) => {
         firstBtn.classList.add('btn', 'btn-light');
 
         prevBtn.addEventListener('click', () => showPrevPage(newState, state));
-
         firstBtn.addEventListener('click', () => showFirstPage(newState));
 
         pageNavigationBox.append(prevBtn, firstBtn);
